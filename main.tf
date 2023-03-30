@@ -1,3 +1,6 @@
+# ------------------------------
+# Terraform configuration
+# ------------------------------
 terraform {
   # Assumes s3 bucket and dynamo DB table already set up
   backend "s3" {
@@ -16,6 +19,19 @@ terraform {
   }
 }
 
+# ------------------------------
+# Provider
+# ------------------------------
 provider "aws" {
   region = local.region
+}
+
+# ------------------------------
+# Vaiables
+# ------------------------------
+variable "project" {
+  type = string
+}
+variable "environment" {
+  type = string
 }
