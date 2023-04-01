@@ -73,7 +73,7 @@ resource "aws_db_instance" "mysql_standalone" {
   publicly_accessible    = false
   port                   = 3306
 
-  db_name              = "sampleapp"
+  db_name              = "tasty"
   parameter_group_name = aws_db_parameter_group.mysql_standalone_parametergroup.name
   option_group_name    = aws_db_option_group.mysql_standalone_optiongroup.name
 
@@ -82,8 +82,8 @@ resource "aws_db_instance" "mysql_standalone" {
   maintenance_window         = "Mon:05:00-Mon:08:00"
   auto_minor_version_upgrade = false
 
-  deletion_protection = true
-  skip_final_snapshot = false
+  deletion_protection = false
+  skip_final_snapshot = true
 
   apply_immediately = true
 
